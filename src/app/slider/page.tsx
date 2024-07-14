@@ -1,7 +1,6 @@
 "use client"
 import Image from 'next/image';
 import React, { useState } from 'react';
-import Image from 'next/image';
 
 const Slider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
