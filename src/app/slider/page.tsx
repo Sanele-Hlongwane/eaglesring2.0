@@ -1,18 +1,8 @@
 "use client"
 import Image from 'next/image';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-interface Slide {
-  image: string;
-  title: string;
-  content: string;
-}
-
-interface SliderProps {
-  slides: Slide[];
-}
-
-const Slider: React.FC<SliderProps> = ({ slides }) => {
+const Slider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
@@ -43,19 +33,21 @@ const Slider: React.FC<SliderProps> = ({ slides }) => {
             />
             <h4 className="text-xl font-semibold mb-2 text-center text-white">{slide.title}</h4>
             <p className="text-center text-white">{slide.content}</p>
-            <button>Join Now</button>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Join Now
+            </button>
           </div>
         ))}
       </div>
       <button
         onClick={prevSlide}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-popover-foreground text-neutral-50 p-2"
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2"
       >
         Prev
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-popover-foreground text-neutral-50 p-2"
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2"
       >
         Next
       </button>
@@ -64,3 +56,4 @@ const Slider: React.FC<SliderProps> = ({ slides }) => {
 };
 
 export default Slider;
+
