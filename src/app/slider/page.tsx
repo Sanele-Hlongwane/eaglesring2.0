@@ -1,6 +1,7 @@
 "use client"
 import Image from 'next/image';
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 const Slider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,11 +25,13 @@ const Slider = ({ slides }) => {
             key={index}
             className="w-full flex-shrink-0 p-4 bg-gray-900 rounded-lg flex flex-col items-center justify-center"
           >
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="w-full h-64 object-cover rounded-lg mb-4"
-            />
+            <Image
+  src={slide.image}
+  alt={slide.title}
+  width={500} // Adjust width and height as per your design
+  height={300}
+  className="w-full h-64 object-cover rounded-lg mb-4"
+/>
             <h4 className="text-xl font-semibold mb-2 text-center text-white">{slide.title}</h4>
             <p className="text-center text-white">{slide.content}</p>
             <button>Join Now</button>
