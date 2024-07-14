@@ -3,12 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import bgImage from "@/assets/man.jpg";
 import Eagle from "@/assets/EaglesRingLogo.png";
+import { useRouter } from 'next/navigation';
 
 interface OnboardingProps {
   onGetStartedClick: () => void;
 }
 
-const Onboarding: React.FC<OnboardingProps> = ({ onGetStartedClick }) => {
+const Onboarding = () => {
+  const router = useRouter();
+
+  const handleGetStartedClick = () => {
+    // Define your logic here when 'Get Started' is clicked
+    router.push('/get-started'); // Example navigation using Next.js router
+  };
+
   return (
     <div className="flex flex-col min-h-[100vh] background-container">
       <header className="px-4 lg:px-6 h-14 flex items-center">
@@ -38,7 +46,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ onGetStartedClick }) => {
                 <div className="space-x-4 py-4">
                   <button
                     className="inline-flex h-9 items-center justify-center transform hover:scale-105 text-black bg-gradient-to-r from-[#917953] to-[#CBAC7C] font-semibold py-2 px-4 rounded-lg transition-all duration-300 ease-in-out hover:border-[#917953] border-[#917953]"
-                    onClick={onGetStartedClick}
+                    onClick={handleGetStartedClick}
                   >
                     Get Started
                   </button>
@@ -76,4 +84,5 @@ const Onboarding: React.FC<OnboardingProps> = ({ onGetStartedClick }) => {
 };
 
 export default Onboarding;
+
 
